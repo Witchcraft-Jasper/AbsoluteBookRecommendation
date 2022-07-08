@@ -1,0 +1,46 @@
+{
+"books":[
+  {
+    "name": "《四大名著》合集",
+    "price": "￥35.00",
+    "oldPrice": "￥40.00",
+    "url": "../images/items/1-4.jpg"
+  },
+  {
+    "name": "《简·爱》",
+    "price": "￥23.00",
+    "oldPrice": "￥50.00",
+    "url": "../images/items/1-1.jpg"
+  },
+  {
+    "name": "《基督山伯爵》",
+    "price": "￥35.00",
+    "oldPrice": "￥40.00",
+    "url": "../images/items/1-2.jpg"
+  },
+  {
+    "name": "《红楼梦》完整版",
+    "price": "￥23.00",
+    "oldPrice": "￥50.00",
+    "url": "../images/items/1-8.jpg"
+  },
+  {
+    "name": "《世界十大名著》",
+    "price": "￥23.00",
+    "oldPrice": "￥50.00",
+    "url": "../images/items/1-5.jpg"
+  },
+  {
+    "name": "《人间失格》精装版",
+    "price": "￥34.00",
+    "oldPrice": "￥46.00",
+    "url": "../images/items/1-12.jpg"
+  },
+  {
+    "name": "《乞力马扎罗的雪》",
+    "price": "￥23.00",
+    "oldPrice": "￥50.00",
+    "url": "../images/items/1-6.jpg"
+  }
+]
+}

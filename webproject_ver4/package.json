@@ -1,0 +1,21 @@
+{
+  "name": "webproject_ver4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "serve": "node app.js",
+    "daemon": "nohup npm run serve &"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5"
+  }
+}
