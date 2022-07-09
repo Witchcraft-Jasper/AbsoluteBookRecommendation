@@ -14,7 +14,12 @@ function login() {
                 alert("请输入密码");
             } else if (msg == "3") {
                 alert("登录成功");
+                const t1 = document.getElementById("loginText")
+                const t2 = document.getElementById("signText")
+                t1.innerText = username1.value.toString();
+                t2.style.display = "none";
                 window.location.href = "index.html";
+
             } else {
                 alert("请输入正确的用户名和密码！");
             }

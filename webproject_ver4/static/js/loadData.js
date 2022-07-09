@@ -35,13 +35,13 @@ $.ajax({
     success: function (obj) {
         let body = $.parseJSON(obj)
         console.log(body.toString());
-        content = obj.data
+        content = body.data
         for (let i = 0; i < 50; i++) {
             const str2 = ".book" + (i + 6).toString();
             const books2 = $(str2).children('.product__content');
-            books2.children('h4').children('a').text(content[i].bookName)
-            books2.children('.prize').children('li').text(content[i].price);
-            books2.children('.prize').children('.old_prize').text(content[i].oriPrice);
+            books2.children('h4').children('a').text(content[i].bookName.toString())
+            books2.children('.prize').children('li').text("￥" + content[i].price.toString());
+            books2.children('.prize').children('.old_prize').text("￥" + content[i].oriPrice.toString());
             $(str2).children('.product__thumb').children('.first__img').children('img').attr("src", content[i].image);
         }
     }
