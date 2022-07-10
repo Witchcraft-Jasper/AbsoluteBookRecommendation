@@ -17,12 +17,14 @@ let indexRouter = require("./router/index");
 let loginRouter = require("./router/login");
 let signUpRouter = require("./router/signUp");
 let descRouter = require("./router/description");
+let shopRouter = require("./router/shop-list");
 
 
 app.use("/index.html", indexRouter);
 app.use("/login.html", loginRouter);
 app.use("/signUp.html", signUpRouter);
 app.use("/description.html", descRouter);
+app.use("/shop-list.html", descRouter);
 
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

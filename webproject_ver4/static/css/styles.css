@@ -292,7 +292,10 @@ input::-moz-focus-inner {
 textarea {
     overflow: auto;
     vertical-align: top; }
-
+.item01.d-flex {
+    align-items: center;
+    margin-bottom: 10px;
+}
 table {
     border-bottom: 1px solid #ededed;
     border-collapse: collapse;
@@ -3862,10 +3865,11 @@ h3.widget-title-modal {
     padding-top: 220px;
 }
 .bradcaump__inner .bradcaump-title {
-    font-size: 24px;
+    font-size: 60px;
     font-weight: 700;
+    font-family: 微软雅黑;
     text-transform: uppercase;
-    color: #fff;
+    color: black;
     line-height: 30px; }
 .bradcaump__inner .bradcaump-content {
     padding: 15px 0; }
