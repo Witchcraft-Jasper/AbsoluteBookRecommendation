@@ -14,6 +14,8 @@ function login() {
                 alert("请输入密码");
             } else if (msg == "3") {
                 alert("登录成功");
+                $.cookie("user", username1.value, {expires: 30});
+                $.cookie("pwd", pass1.value, {expires: 30});
                 const t1 = document.getElementById("loginText")
                 const t2 = document.getElementById("signText")
                 t1.innerText = username1.value.toString();
@@ -28,6 +30,27 @@ function login() {
     });
 }
 
+function check() {
+    let user = $.cookie("user");
+    let pwd = $.cookie("pwd");
+    if (user != null && user !== "" && pwd != null && pwd !== "") {
+        console.log("2");
+        htmlobj = $.ajax({
+            type: "post",
+            url: "http://localhost:3000/login.html/login",
+            data:{username:user,password:pwd},
+            async: false,
+            success:function (msg){
+                if (msg == "3") {
+                    window.location.href = "#.html";
+                } else
+                    window.location.href="login.html";
+            }
+        });
+    } else {
+        window.location.href="login.html";
+    }
+}
 
 function sign() {
     const username = document.getElementById("floatingInput");
