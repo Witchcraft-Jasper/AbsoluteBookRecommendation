@@ -33,7 +33,7 @@ $.ajax({
     timeout: 3000,
     success: function (obj) {
         let body = $.parseJSON(obj)
-        console.log(body.toString());
+        // console.log(body.toString());
         content = body.data
         for (let i = 0; i < 10; i++) {
             const str2 = ".book" + (i + 6).toString();

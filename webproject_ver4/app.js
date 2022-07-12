@@ -1,6 +1,6 @@
 let express = require("express");
 let path = require("path");
-let cors = require('cors')
+let cors = require('cors');
 let request = require('request');
 let app = express();
 let bodyParser = require('body-parser');//用于req.body获取值的
@@ -24,7 +24,7 @@ app.use("/index.html", indexRouter);
 app.use("/login.html", loginRouter);
 app.use("/signUp.html", signUpRouter);
 app.use("/description.html", descRouter);
-app.use("/shop-list.html", descRouter);
+app.use("/shopList.html", shopRouter);
 
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -36,12 +36,21 @@ app.all('*', function (req, res, next) {
 })
 
 app.get('/hotBooks', (req, res) => {
-    request({ url: 'http://39.106.137.16:3180/api/hotBooks' }, function (error, response, body) {
-        //    console.log(response)
+    request({ url: 'http://39.106.137.16:3180/api/hotBooks'}, function (error, response, body) {
         //把请求成功后的数据发送给客户端
-        console.log(body);
         res.send(body);
     })
+});
+
+app.get('/shopBooks', (req, res) => {
+    var shopId = req.query.shopId;
+    request({ url: 'http://39.106.137.16:3180/api/shop/bookList',data:{shopId:shopId}},
+        function (error, response, body) {
+            //console.log(response)
+            //把请求成功后的数据发送给客户端
+            console.log(body);
+            res.send(body);
+        })
 });
 
 app.listen(3000, () => {
