@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/ABRserver/ABRserver.iml" filepath="$PROJECT_DIR$/ABRserver/ABRserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/AbsoluteBookRecommendation.iml" filepath="$PROJECT_DIR$/.idea/AbsoluteBookRecommendation.iml" />
       <module fileurl="file://$PROJECT_DIR$/ABRserver/recommender/DataLoader/DataLoader.iml" filepath="$PROJECT_DIR$/ABRserver/recommender/DataLoader/DataLoader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hadoop/Hadoop.iml" filepath="$PROJECT_DIR$/Hadoop/Hadoop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ABRserver/recommender/KafkaStreaming/KafkaStreaming.iml" filepath="$PROJECT_DIR$/ABRserver/recommender/KafkaStreaming/KafkaStreaming.iml" />
       <module fileurl="file://$PROJECT_DIR$/ABRserver/recommender/recommender.iml" filepath="$PROJECT_DIR$/ABRserver/recommender/recommender.iml" />
     </modules>
   </component>
