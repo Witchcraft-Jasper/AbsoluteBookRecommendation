@@ -1,0 +1,8 @@
+# 首先切换至根目录
+cd ./Dang/Dang
+# 正常运行
+scrapy crawl book
+# 无日志运行
+scrapy crawl book --nolog
+# 以json格式保存至文件books.json，编码格式为utf-8
+scrapy crawl book -O books.json -s FEED_EXPORT_ENCODING=utf-8
