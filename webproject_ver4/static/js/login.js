@@ -1,12 +1,13 @@
 function login() {
     const username1 = document.getElementById("floatingInput");
     const pass1 = document.getElementById("floatingPassword");
-    console.log("2");
+    console.log("1"+username1.value)
+    console.log("1"+pass1.value)
     htmlobj = $.ajax({
-        type: "post",
-        url: "http://localhost:3000/login.html/login",
-        data: {username: username1.value, password: pass1.value},
-        async: false,
+        method: "post",
+        url: "./UserLogin",
+        data: {userName: username1.value, password: pass1.value},
+        async: true,
         success: function (msg) {
             if (msg == "1") {
                 alert("请输入用户名");
@@ -21,11 +22,11 @@ function login() {
                 t1.innerText = username1.value.toString();
                 t2.style.display = "none";
                 window.location.href = "index.html";
-
             } else {
-                alert("请输入正确的用户名和密码！");
+                console.log(msg);
+                console.log("HO");
+            alert("请输入正确的用户名和密码！");
             }
-
         }
     });
 }

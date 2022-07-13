@@ -20,11 +20,12 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/plugins.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/shopCart.css">
 
     <!-- Modernizer js -->
     <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
-<body>
+<body onload="showShopCartTest()">
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience and security.</p>
@@ -32,7 +33,6 @@
 
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
-
     <!-- Header -->
     <header id="wn__header" class="header__area header__absolute sticky__header">
         <div class="container-fluid">
@@ -157,215 +157,48 @@
     </div>
     <!-- End Bradcaump area -->
     <!-- Start Shop Page -->
-    <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-12 order-1 order-lg-2">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between"
-                                 style="text-align: right">
-                                <div class="shop__list nav justify-content-center">
-                                </div>
-                                <p>共<span> 4 </span>件商品</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab__container">
-                        <div class="shop-grid tab-pane fade show active" id="nav-list" role="tabpanel">
-                            <div class="list__view__wrapper">
-                                <!-- Start Single Product -->
-                                <div class="list__view">
-                                    <div class="thumb">
-                                        <a class="first__img" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg"
-                                                alt="product images"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg" alt="product images"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="single-product.html">adipiscing</a></h2>
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                        <ul class="prize__box">
-                                            <li>￥111.00</li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-                                    </div>
-                                    <div class="item01 d-flex">
-                                        <ul class="item_number">
-                                            <li>
-                                                <span style="font-size: 20px">X5</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="list__view mt--40">
-                                    <div class="thumb">
-                                        <a class="first__img" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg"
-                                                alt="product images"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg" alt="product images"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="single-product.html">Voyage Yoga Bag</a></h2>
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                        <ul class="prize__box">
-                                            <li>$111.00</li>
-                                            <li class="old__prize">$220.00</li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue
-                                            nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi
-                                            ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate
-                                            adipiscing cursus eu, suscipit id nulla.</p>
-                                        <ul class="cart__action d-flex">
-                                            <li class="cart"><a href="#">Add to cart</a></li>
-                                            <li class="wishlist"><a href="#"></a></li>
-                                            <li class="compare"><a href="#"></a></li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="list__view mt--40">
-                                    <div class="thumb">
-                                        <a class="first__img" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg"
-                                                alt="product images"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg" alt="product images"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="single-product.html">Impulse Duffle</a></h2>
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                        <ul class="prize__box">
-                                            <li>$111.00</li>
-                                            <li class="old__prize">$220.00</li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue
-                                            nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi
-                                            ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate
-                                            adipiscing cursus eu, suscipit id nulla.</p>
-                                        <ul class="cart__action d-flex">
-                                            <li class="cart"><a href="#">Add to cart</a></li>
-                                            <li class="wishlist"><a href="#"></a></li>
-                                            <li class="compare"><a href="#"></a></li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="list__view mt--40">
-                                    <div class="thumb">
-                                        <a class="first__img" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg"
-                                                alt="product images"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg" alt="product images"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="single-product.html">Strive Shoulder Pack</a></h2>
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                        <ul class="prize__box">
-                                            <li>$111.00</li>
-                                            <li class="old__prize">$220.00</li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue
-                                            nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi
-                                            ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate
-                                            adipiscing cursus eu, suscipit id nulla.</p>
-                                        <ul class="cart__action d-flex">
-                                            <li class="cart"><a href="#">Add to cart</a></li>
-                                            <li class="wishlist"><a href="#"></a></li>
-                                            <li class="compare"><a href="#"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="list__view mt--40">
-                                    <div class="thumb">
-                                        <a class="first__img" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg"
-                                                alt="product images"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img
-                                                src="../images/items/1-1.jpg" alt="product images"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="single-product.html">Strive Shoulder Pack</a></h2>
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                        <ul class="prize__box">
-                                            <li>$111.00</li>
-                                            <li class="old__prize">$220.00</li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue
-                                            nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi
-                                            ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate
-                                            adipiscing cursus eu, suscipit id nulla.</p>
-                                        <ul class="cart__action d-flex">
-                                            <li class="cart"><a href="#">Add to cart</a></li>
-                                            <li class="wishlist"><a href="#"></a></li>
-                                            <li class="compare"><a href="#"></a></li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between"
-                                 style="text-align: right">
-                                <div class="shop__list nav justify-content-center">
-                                </div>
-                                <p style="font-size: 20px">共<span>￥1000 </span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="public-shop-cart">
+        <div class="content">
+            <span>全部书籍3</span>
+            <div class="cart-title">
+            <span>
+                <input type="checkbox" id="all">
+                <label for="all">全选</label>
+            </span>
+                <span>商品</span>
+                <span>单价</span>
+                <span>数量</span>
+                <span>小计</span>
+                <span>操作</span>
             </div>
+            <!-- Start Single Product -->
+            <!-- Product In JS-->
+<!--            <div class="cart-detail">-->
+<!--                <input type="checkbox">-->
+<!--                <div class="cart-title">-->
+<!--                    <img src=" ../images/details/0.jpg" alt="">-->
+<!--                    <div>-->
+<!--                        <a href=""><i>HOT</i> 计算机网络:自顶向下方法</a>-->
+<!--                        <span><i class="iconfont icon-icon_shezhi"></i> </span>-->
+<!--                    </div>-->
+<!--                    <span>(美)库罗斯,(美)罗斯　著,陈鸣　译</span>-->
+<!--                </div>-->
+<!--                <div class="cart-price">￥4999.00</div>-->
+<!--                <div class="cart-number">-->
+<!--                    <button class="sub">-</button>-->
+<!--                    <input type="text" value="1">-->
+<!--                    <button class="plus">+</button>-->
+<!--                </div>-->
+<!--                <div class="cart-subtotal">￥4999.00</div>-->
+<!--                <div class="cart-oprate"><a href="">删除</a></div>-->
+<!--            </div>-->
+            <!-- End Single Product-->
+
+            <!-- ShopCart Footer Area -->
+<!--            <div class="cart-btn"><span>总价:</span><span> ¥14797.00 </span>-->
+<!--                <button class="btn">去结算</button>-->
+<!--            </div>-->
+            <!-- //ShopCart Footer Area -->
         </div>
     </div>
     <!-- End Shop Page -->
@@ -393,6 +226,7 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/plugins.js"></script>
 <script src="../js/active.js"></script>
+<script src="../js/shopCart.js"></script>
 
 </body>
 </html>
