@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .click{
+            position: fixed;
+            left: 0px;
+            
+            top: 0px;
+            background: #000;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+        .modal{
+            position: relative;
+            background: #fff;
+            width: 40%;
+            height: 60%;
+            border-radius: 5px;
+            margin: 5% auto;
+        }
+        #header{
+            height: 40px;
+        }
+        #header-right{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: red;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<button type="button" onclick="dianwo()">点我</button>
+<div class="click" id='click'>
+    <div class="modal">
+        <div id="header">
+            <span>修改密码</span>
+            <div id="header-right" onclick="hider()">x</div>
+        </div>
+        <div class="col-4">
+            <label for="old_pwd" class="form-label">旧密码</label>
+            <input type="text" class="form-control" id="old_pwd">
+        </div>
+        <div class="col-4">
+            <label for="new_pwd" class="form-label">新密码</label>
+            <input type="text" class="form-control" id="new_pwd">
+        </div>
+        <div>
+        <button class="btn btn-primary btn-lg" type="button" onclick="hider()">取消</button>
+        <button class="btn btn-primary btn-lg" type="button" name="button1">确定</button>
+        </div>
+        </div>
+
+</div>
+<script type="text/javascript">
+    document.getElementById('click').style.display="none";
+    function dianwo(){
+        document.getElementById('click').style.display="";
+    }
+    function hider(){
+        document.getElementById('click').style.display="none";
+    }
+</script>
+<script src="../js/vendor/jquery-3.2.1.min.js"></script>
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../js/form-validation.js"></script>
+</body>
+</html>

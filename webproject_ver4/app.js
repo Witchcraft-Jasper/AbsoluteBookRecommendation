@@ -163,7 +163,7 @@ app.post('/sign',(req,res)=>{
 
 app.post('/details', (req, res) => {
     //console.log(req,res)
-    request({ url: 'http://39.106.137.16:3180/api/user/details',json:{userName:req.body.username,userId:req.body.user_id}},
+    request({ url: 'http://39.106.137.16:3180/api/user/details',json:{userId:req.body.user_id}},
         function (error, response, body) {
             console.log(body);
             res.send(body);
@@ -182,3 +182,12 @@ app.post('/edit', (req, res) => {
 app.listen(3000, () => {
     console.log('Server has listen to 3000');
 })
+
+app.post('/changed', (req, res) => {
+    //console.log(req,res)
+    request({ url: 'http://39.106.137.16:3180/api/user/update/password',json:{old_pwd:req.body.old_pwd,new_pwd: req.body.new_pwd}},
+        function (error, response, body) {
+            console.log(body);
+            res.send(body);
+        })
+});

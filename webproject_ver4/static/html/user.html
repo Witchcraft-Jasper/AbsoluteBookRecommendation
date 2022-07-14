@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Checkout example · Bootstrap v5.2</title>
+
+    <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body{
+            margin: 0px;
+        }
+        .click{
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background: #000;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+        .modal{
+            position: relative;
+            background: #fff;
+            width: 40%;
+            height: 60%;
+            border-radius: 5px;
+            margin: 5% auto;
+        }
+        #header{
+            height: 40px;
+        }
+        #header-right{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: red;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/bootstrap/form-validation.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="../images/logo1.png" alt="" width="72" height="57">
+        </div>
+
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">账户信息</h4>
+                <form class="needs-validation" novalidate>
+                    <div class="row g-3">
+
+                        <div class="col-10">
+                            <label for="username" class="form-label">用户名</label>
+                            <div class="input-group has-validation">
+                                <input type="text" class="form-control" id="username" value="Username" required>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <label for="gender" class="form-label">性别</label>
+                            <select class="form-select" id="gender">
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+
+                        <div class="col-4">
+                            <label for="age" class="form-label">年龄</label>
+                            <input type="number" class="form-control" id="age">
+                        </div>
+
+                        <div class="col-10">
+                            <label for="address" class="form-label">地址</label>
+                            <input type="text" class="form-control" id="address" >
+                        </div>
+
+                        <div class="col-10">
+                            <label for="phone" class="form-label">电话号码</label>
+                            <input type="text" class="form-control" id="phone" required>
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button class="w-45 btn btn-primary btn-lg" type="button" onclick="edit()">修改信息</button>
+                    <button class="w-45 btn btn-primary btn-lg" type="button" onclick="bclick()">修改密码</button>
+
+                    <div class="click" id='click'>
+                        <div class="modal">
+                            <div id="header">
+                                <span>修改密码</span>
+                                <div id="header-right" onclick="hider()">x</div>
+                            </div>
+                            <div class="col-4">
+                                <label for="old_pwd" class="form-label">旧密码</label>
+                                <input type="text" class="form-control" id="old_pwd">
+                            </div>
+                            <div class="col-4">
+                                <label for="new_pwd" class="form-label">新密码</label>
+                                <input type="text" class="form-control" id="new_pwd">
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-lg" type="button" onclick="hider()">取消</button>
+                                <button class="btn btn-primary btn-lg" type="button" onclick="changed()">确定</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+    </footer>
+</div>
+
+
+
+<script src="../js/vendor/bootstrap.bundle.min.js"></script>
+<script src="../js/vendor/jquery-3.2.1.min.js"></script>
+<script src="../js/vendor/jquery.cookie.js"></script>
+<script src="../js/vendor/form-validation.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/active.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/user.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type:"post",
+            url:"../details",
+            data:{username:$.cookie("user"),user_id:$.cookie("user_id")},
+            dataType:"json",
+            async: false,
+            success: function (msg){
+                msg.gender = String;
+                $("#gender").attr("value",msg.gender);
+                $("#age").attr("value",msg.age);
+                $("#address").attr("value",msg.address);
+                $("#phone").attr("value",msg.phone);
+            }
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    document.getElementById('click').style.display="none";
+    function bclick(){
+        document.getElementById('click').style.display="";
+    }
+    function hider(){
+        document.getElementById('click').style.display="none";
+    }
+</script>
+
+<script>
+    function changed() {
+        $.ajax({
+            type: "post",
+            url: "../changed",
+            data: {old_pwd: document.getElementById("old_pwd").value.toString(), new_pwd: document.getElementById("new_pwd").value.toString()},
+            dataType: "json",
+            async: false,
+            success: function (msg) {
+                alert("修改成功");
+            }
+        })
+    }
+</script>
+</body>
+
+</html>
