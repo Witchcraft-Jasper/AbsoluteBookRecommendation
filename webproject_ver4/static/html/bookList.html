@@ -1,0 +1,293 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>W's Book--书籍</title>
+    <meta name="author" content="Witchcraft">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/iconTitle.ico">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/plugins.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Modernizer js -->
+    <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
+</head>
+<body onload="showBookList()">
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- Main wrapper -->
+<div class="wrapper" id="wrapper">
+    <header id="wn__header" class="header__area header__absolute sticky__header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-6 col-lg-2">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="../images/logo1.png" width="80px" alt="logo images" style="margin-left: 15px">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 d-none d-lg-block">
+                    <nav class="mainmenu__nav">
+                        <ul class="meninmenu d-flex justify-content-start">
+                            <li><a href="index.html" id="i1">主页</a></li>
+                            <li><a href="description.html" id="i2">商品详情</a></li>
+                            <li><a href="#" id="i3">查看全部</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6 col-lg-2">
+                    <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
+                        <li class="shop_search"><a class="search__active" href="#"></a></li>
+                        <li class="wishlist"><a href="#"></a></li>
+                        <li class="shopcart"><a class="cart" href="shopCart.html"></span></a></li>
+                        <li class="setting__bar__icon"><a class="setting__active" href="login.html"></a>
+                            <div class="searchbar__content setting__block">
+                                <div class="content-inner">
+                                    <div class="switcher-currency">
+                                        <strong class="label switcher-label">
+                                            <span>我的账户</span>
+                                        </strong>
+                                        <div class="switcher-options">
+                                            <div class="switcher-currency-trigger">
+                                                <div class="setting__menu">
+                                                    <span><a href="#">我的账户</a></span>
+                                                    <span id="loginText"><a href="login.html">登录</a></span>
+                                                    <span id="signText"><a href="signUp.html">注册</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Start Mobile Menu -->
+            <div class="row d-none">
+                <div class="col-lg-12 d-none">
+                    <nav class="mobilemenu__nav">
+                        <ul class="meninmenu">
+                            <li><a href="index.html">主页</a></li>
+                            <li><a href="description.html">商品详情</a></li>
+                            <li><a href="#">查看全部</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- End Mobile Menu -->
+            <div class="mobile-menu d-block d-lg-none">
+            </div>
+            <!-- Mobile Menu -->
+        </div>
+    </header>
+    <!-- Start Search Popup -->
+    <div class="box-search-content search_active block-bg close__top">
+        <form id="search_mini_form" class="minisearch" action="#">
+            <div class="field__search">
+                <input type="text" placeholder="Search entire store here...">
+                <div class="action">
+                    <a href="#"><i class="zmdi zmdi-search"></i></a>
+                </div>
+            </div>
+        </form>
+        <div class="close__wrap">
+            <span>close</span>
+        </div>
+    </div>
+    <!-- End Search Popup -->
+    <!-- Start Bradcaump area -->
+    <div class="ht__bradcaump__area bg-image--5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contentbox">
+                        <h2>书籍列表</h2>
+                        <nav>
+                            <a href="index.html">主页</a>
+                            <span>/</span>
+                            <span>书籍列表</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
+    <!-- Start Shop Page -->
+    <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
+                    <div class="shop__sidebar">
+                        <aside class="wedget__categories poroduct--cat">
+                            <h3 class="wedget__title">商品分类</h3>
+                            <ul>
+                                <li><a href="#">人物传记 <span>(6)</span></a></li>
+                                <li><a href="#">商务书籍 <span>(4)</span></a></li>
+                                <li><a href="#">烹饪料理 <span>(6)</span></a></li>
+                                <li><a href="#">饮食健康 <span>(7)</span></a></li>
+                                <li><a href="#">历史书籍 <span>(8)</span></a></li>
+                                <li><a href="#">当代都市 <span>(9)</span></a></li>
+                                <li><a href="#">现代散文 <span>(13)</span></a></li>
+                                <li><a href="#">精选诗集 <span>(20)</span></a></li>
+                                <li><a href="#">科幻小说 <span>(22)</span></a></li>
+                                <li><a href="#">漫画书籍 <span>(13)</span></a></li>
+                                <li><a href="#">幽默故事 <span>(17)</span></a></li>
+                                <li><a href="#">著名系列 <span>(20)</span></a></li>
+                                <li><a href="#">党政书籍 <span>(34)</span></a></li>
+                                <li><a href="#">儿童书籍 <span>(60)</span></a></li>
+                                <li><a href="#">进口书籍 <span>(3)</span></a></li>
+                                <li><a href="#">特价书籍 <span>(3)</span></a></li>
+                            </ul>
+                        </aside>
+                        <aside class="wedget__categories pro--range">
+                            <h3 class="wedget__title">价格区间</h3>
+                            <div class="content-shopby">
+                                <div class="price_filter s-filter clear">
+                                    <form action="#" method="GET">
+                                        <div id="slider-range"></div>
+                                        <div class="slider__range--output">
+                                            <div class="price__output--wrap">
+                                                <div class="price--output">
+                                                    <span>价格 :</span><input type="text" id="amount" readonly="">
+                                                </div>
+                                                <div class="price--filter">
+                                                    <a href="#">筛选</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class="wedget__categories poroduct--tag">
+                            <h3 class="wedget__title">查找标签</h3>
+                            <ul>
+                                <li><a href="#">人物传记</a></li>
+                                <li><a href="#">商务书籍</a></li>
+                                <li><a href="#">烹饪料理</a></li>
+                                <li><a href="#">饮食健康</a></li>
+                                <li><a href="#">历史书籍</a></li>
+                                <li><a href="#">当代都市</a></li>
+                                <li><a href="#">现代散文</a></li>
+                                <li><a href="#">精选诗集</a></li>
+                                <li><a href="#">科幻小说</a></li>
+                                <li><a href="#">儿童书籍</a></li>
+                                <li><a href="#">进口书籍</a></li>
+                                <li><a href="#">特价书籍</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="wedget__categories sidebar--banner">
+                            <img src="../images/others/banner_left.jpg" alt="banner images">
+                            <div class="text">
+                                <h6>新品</h6>
+                                <h6>享<br> <strong>40%</strong>折扣</h6>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-12 order-1 order-lg-2">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
+                                <div class="shop__list nav justify-content-center" role="tablist">
+                                    <a class="nav-item nav-link" data-toggle="tab" href="#nav-grid" role="tab"><i
+                                            class="fa fa-th"></i></a>
+                                    <a class="nav-item nav-link active" data-toggle="tab" href="#nav-list" role="tab"><i
+                                            class="fa fa-list"></i></a>
+                                </div>
+                                <p>共有xx条结果</p>
+                                <div class="orderby__wrapper">
+                                    <span>排序</span>
+                                    <select class="shot__byselect">
+                                        <option>综合</option>
+                                        <option>销量</option>
+                                        <option>评分</option>
+                                        <option>价格</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab__container">
+                        <div class="shop-grid tab-pane fade" id="nav-grid" role="tabpanel">
+                            <div class="row">
+                                <!-- Start Single Product -->
+                                <!-- Product -->
+                                <!-- End Single Product -->
+                            </div>
+                            <ul class="wn__pagination">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="shop-grid tab-pane fade show active" id="nav-list" role="tabpanel">
+                            <div class="list__view__wrapper">
+                                <!-- Start Single Product -->
+                                <!-- Product -->
+                                <!-- End Single Product -->
+                            </div>
+                            <ul class="wn__pagination">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Shop Page -->
+    <!-- Footer Area -->
+    <footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
+        <div class="copyright__wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="copy__right__inner text-right">
+                            <p>Copyright © W's Book 2021 All rights reserved.<a target="_blank" href="#"
+                                                                                one-link-mark="yes"></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //Footer Area -->
+
+</div>
+<!-- //Main wrapper -->
+
+<!-- JS Files -->
+<script src="../js/vendor/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/active.js"></script>
+<script src="../js/bookList.js"></script>
+
+</body>
+</html>

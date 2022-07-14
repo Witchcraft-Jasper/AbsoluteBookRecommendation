@@ -17,7 +17,9 @@ let indexRouter = require("./router/index");
 let loginRouter = require("./router/login");
 let signUpRouter = require("./router/signUp");
 let descRouter = require("./router/description");
-let shopRouter = require("./router/shop-list");
+let shopRouter = require("./router/bookList");
+let welcomeRouter = require("./router/welcome");
+let userRouter = require("./router/user");
 const querystring = require("querystring");
 
 
@@ -26,6 +28,8 @@ app.use("/login.html", loginRouter);
 app.use("/signUp.html", signUpRouter);
 app.use("/description.html", descRouter);
 app.use("/shopList.html", shopRouter);
+app.use("/welcome.html",welcomeRouter);
+app.use("/user.html",userRouter);
 
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -37,63 +41,99 @@ app.all('*', function (req, res, next) {
 })
 
 app.get('/hotBooks', (req, res) => {
-    request({url: 'http://39.106.137.16:3180/api/hotBooks'}, function (error, response, body) {
-        //把请求成功后的数据发送给客户端
-        res.send(body);
-    })
+    request({ url: 'http://39.106.137.16:3180/api/hotBooks' },
+        function (error, response, body) {
+            // console.log(response.toString())
+            //把请求成功后的数据发送给客户端
+            // console.log(body);
+            res.send(body);
+        })
+});
+
+app.get('/highScoresBooks', (req, res) => {
+    request({ url: 'http://39.106.137.16:3180/api/highScoreBooks' },
+        function (error, response, body) {
+            // console.log(response.toString())
+            //把请求成功后的数据发送给客户端
+            // console.log(body);
+            res.send(body);
+        })
+});
+
+app.get('/bookDescription', (req, res) => {
+    let bookId = Number(req.query.bookId);
+    request({ url: 'http://39.106.137.16:3180/api/book/details', qs:{bookId:bookId}},
+        function (error, response, body) {
+            // console.log(response.toString())
+            //把请求成功后的数据发送给客户端
+            // console.log(body);
+            res.send(body);
+        })
 });
 
 app.get('/shopBooks', (req, res) => {
-    const shopId = req.query.shopId;
-    request({url: 'http://39.106.137.16:3180/api/shop/bookList', qs: {shopId: shopId}},
+    let shopId = Number(req.query.shopId);
+    request({ url: 'http://39.106.137.16:3180/api/shop/bookList', qs:{shopId:shopId}},
         function (error, response, body) {
-            //console.log(response)
+            // console.log(response.toString())
             //把请求成功后的数据发送给客户端
+            // console.log(body);
+            res.send(body);
+        })
+});
+
+app.get('/shopCart', (req, res) => {
+    let shopId = Number(req.query.userId);
+    request({ url: 'http://39.106.137.16:3180/api/user/shopoingCar', qs:{shopId:shopId}},
+        function (error, response, body) {
+            // console.log(response.toString())
+            //把请求成功后的数据发送给客户端
+            // console.log(body);
+            res.send(body);
+        })
+});
+
+app.get('/booksCategory', (req, res) => {
+    let categoryId = Number(req.query.categoryId);
+    request({ url: 'http://39.106.137.16:3180/api/category/'+categoryId, qs:{categoryId:categoryId}},
+        function (error, response, body) {
+            // console.log(response.toString())
+            //把请求成功后的数据发送给客户端
+            // console.log(body);
+            res.send(body);
+        })
+});
+
+app.post('/login', (req, res) => {
+    //console.log(req,res)
+    request({ url: 'http://39.106.137.16:3180/api/user/login',json:{userName:req.body.username,password:req.body.password}},
+        function (error, response, body) {
             console.log(body);
             res.send(body);
         })
 });
 
-// app.post('/login', (req, res) => {
-//     console.log(req.body)
-//     request({
-//             method: "post",
-//             heads: {'content-type': 'application/json'},
-//             url: 'http://39.106.137.16:3180/api/user/login',
-//             json: {userName: req.query.userName, password: req.query.password}
-//         },
-//         function (error, response, body) {
-//             res.send(body);
-//         })
-// });
-
-app.post('/UserLogin', function (req, res) {
-    let username = req.body.userName;
-    let pswod = req.body.password;
-    console.log("2"+username)
-    console.log("2"+pswod)
-    // let send_obj =
-    // send_obj = JSON.stringify(send_obj)
-    request({
-        type: 'post',
-        json: true,
-        headers: {
-            "content-type": "application/json",
-        },
-        url: 'http://39.106.137.16:3180/api/user/login',
-        body: {userName: username, password: pswod }
-            // + "?userName=" + username + "&password=" + pswod,
-    }, function (error, response, body) {
-        res.send(body);
-    });
+app.post('/sign',(req,res)=>{
+    //console.log(req,res)
+    request({url: 'http://39.106.137.16:3180/api/user/register',json:{userName: req.body.username,password: req.body.password}},
+        function (error,response,body){
+            res.send(body);
+        })
 });
 
-app.get('/shopCart', (req, res) => {
-    let shopId = Number(req.query.userId);
-    request({url: 'http://39.106.137.16:3180/api/shop/bookList', qs: {userId: shopId}},
+app.post('/details', (req, res) => {
+    //console.log(req,res)
+    request({ url: 'http://39.106.137.16:3180/api/user/details',json:{userName:req.body.username,userId:req.body.user_id}},
         function (error, response, body) {
-            // console.log(response.toString())
-            //把请求成功后的数据发送给客户端
+            console.log(body);
+            res.send(body);
+        })
+});
+
+app.post('/edit', (req, res) => {
+    //console.log(req,res)
+    request({ url: 'http://39.106.137.16:3180/api/user/update/details',json:{gender:req.body.gender,age:req.body.age,address:req.body.address,phone:req.body.phone}},
+        function (error, response, body) {
             console.log(body);
             res.send(body);
         })

@@ -21,7 +21,7 @@
     <!-- Modernizer js -->
     <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
-<body>
+<body onload="showDescription(sessionStorage.getItem('bookId'))">
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience and security.</p>
@@ -46,7 +46,7 @@
                         <ul class="meninmenu d-flex justify-content-start">
                             <li><a href="index.html" id="i1">主页</a></li>
                             <li><a href="description.html" id="i2">商品详情</a></li>
-                            <li><a href="shopList.html" id="i3">查看全部</a></li>
+                            <li><a href="bookList.html" id="i3">查看全部</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -54,30 +54,7 @@
                     <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                         <li class="shop_search"><a class="search__active" href="#"></a></li>
                         <li class="wishlist"><a href="#"></a></li>
-                        <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">0</span></a>
-                            <!-- Start Shopping Cart -->
-                            <div class="block-minicart minicart__active">
-                                <div class="minicart-content-wrapper">
-                                    <div class="micart__close">
-                                        <span>close</span>
-                                    </div>
-                                    <div class="items-total d-flex justify-content-between">
-                                        <span>0 件物品</span>
-                                        <span>商品总价</span>
-                                    </div>
-                                    <div class="total_amount text-right">
-                                        <span>￥0.00</span>
-                                    </div>
-                                    <div class="mini_action checkout">
-                                        <a class="checkout__btn" href="#">前往支付</a>
-                                    </div>
-                                    <div class="mini_action cart">
-                                        <a class="cart__btn" href="#">查看更多</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Shopping Cart -->
-                        </li>
+                        <li class="shopcart"><a class="cart" href="shopCart.html"></a></li>
                         <li class="setting__bar__icon"><a class="setting__active" href="login.html"></a>
                             <div class="searchbar__content setting__block">
                                 <div class="content-inner">
@@ -108,7 +85,7 @@
                         <ul class="meninmenu">
                             <li><a href="index.html">主页</a></li>
                             <li><a href="description.html">商品详情</a></li>
-                            <li><a href="description.html">查看全部</a></li>
+                            <li><a href="bookList.html">查看全部</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -142,25 +119,24 @@
                         <div class="row">
                             <div class="col-lg-6 col-12">
                                 <div class="wn__fotorama__wrapper">
-                                    <div class="fotorama wn__fotorama__action" data-nav="thumbs">
-                                        <a href="1.jpg"><img src="../images/details/0.jpg" alt=""></a>
-                                        <a href="2.jpg"><img src="../images/details/1.jpg" alt=""></a>
-                                        <a href="3.jpg"><img src="../images/details/2.jpg" alt=""></a>
-                                        <a href="4.jpg"><img src="../images/details/3.jpg" alt=""></a>
-                                        <a href="5.jpg"><img src="../images/details/4.jpg" alt=""></a>
-                                        <a href="6.jpg"><img src="../images/details/5.jpg" alt=""></a>
+                                    <div id="div_img" class="fotorama wn__fotorama__action" data-nav="thumbs">
+                                        <a><img alt="" src=""></a>
+                                        <a><img alt="" src=""></a>
+                                        <a><img alt="" src=""></a>
+                                        <a><img alt="" src=""></a>
+                                        <a><img alt="" src=""></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="product__info__main">
-                                    <h1>《计算机网络：自顶向下方法》</h1>
+                                    <h1 id="book-name"></h1>
                                     <div class="product-info-stock-sku d-flex">
-                                        <p>库存:<span> 786本</span></p>
-                                        <p>商品编号:<span> VHSDV06451</span></p>
+                                        <p>库存:<span id="reserve"> </span></p>
+                                        <p>商品编号:<span id="book-id"> </span></p>
                                     </div>
                                     <div class="product-reviews-summary d-flex">
-                                        <ul class="rating-summary d-flex">
+                                        <ul id="all_rating_1" class="rating-summary d-flex">
                                             <li><i class="zmdi zmdi-star-outline"></i></li>
                                             <li><i class="zmdi zmdi-star-outline"></i></li>
                                             <li><i class="zmdi zmdi-star-outline"></i></li>
@@ -169,7 +145,7 @@
                                         </ul>
                                         <div class="reviews-actions d-flex">
                                             <a href="#">(0 评价)</a>
-                                            <a href="#">添加评价</a>
+                                            <a href="#nav-review">添加评价</a>
                                         </div>
                                     </div>
                                     <div class="price-box">
@@ -177,8 +153,7 @@
                                     </div>
                                     <div class="box-tocart d-flex">
                                         <span>件数</span>
-                                        <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty"
-                                               type="number">
+                                        <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
                                         <div class="addtocart__actions">
                                             <button class="tocart" type="submit" title="Add to Cart">加入购物车
                                             </button>
@@ -190,14 +165,10 @@
                                         <a class="email" href="#"></a>
                                     </div>
                                     <div class="product__overview">
-                                        <p>本书是当前世界上最为流行的计算机网络教科书之一，采用了作者独创的自顶向下的方法来讲授计算机
-                                            网络的原理及其协议，即从应用层协议开始沿协议栈向下讲解，强调应用层范例和应用编程接口，使读者
-                                            尽快进入每天使用的应用程序环境之中进行学习和“创造”。本书的讲解以因特网为例，学以致用；注重教学法，
-                                            深入浅出地重点讲解计算机网络的基本原理。</p>
+                                        <p id="desc-1"></p>
                                         <ul class="pro__attribute">
-                                            <li>• 机械工业出版社出版</li>
-                                            <li>• 超过500页内容</li>
-                                            <li>• 理解计算机网络的必读书籍</li>
+                                            <li id="publish-1">• 机械工业出版社出版</li>
+                                            <li id="year-1">• 超过500页内容</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -206,127 +177,77 @@
                     </div>
                     <div class="product__info__detailed">
                         <div class="pro_details_nav nav justify-content-start" role="tablist">
-                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details"
-                               role="tab">详情</a>
-                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-review" role="tab">评价</a>
+                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-review" role="tab">评价</a>
+                            <a class="nav-item nav-link " data-toggle="tab" href="#nav-details" role="tab">详情</a>
                         </div>
                         <div class="tab__container">
                             <!-- Start Single Tab Content -->
-                            <div class="pro__tab_label tab-pane fade show active" id="nav-details" role="tabpanel">
-                                <div class="description__attribute">
-                                    <p>
-                                        本书是当前世界上最为流行的计算机网络教科书之一，采用了作者独创的自顶向下的方法来讲授计算机
-                                        网络的原理及其协议，即从应用层协议开始沿协议栈向下讲解，强调应用层范例和应用编程接口，使读者
-                                        尽快进入每天使用的应用程序环境之中进行学习和“创造”。本书的讲解以因特网为例，学以致用；注重教学法，
-                                        深入浅出地重点讲解计算机网络的基本原理。
-                                        <ul>
-                                        <li>• 机械工业出版社出版</li>
-                                        <li>• 超过500页内容</li>
-                                        <li>• 理解计算机网络的必读书籍</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- End Single Tab Content -->
-                            <!-- Start Single Tab Content -->
-                            <div class="pro__tab_label tab-pane fade" id="nav-review" role="tabpanel">
+                            <div class="pro__tab_label tab-pane fade show active" id="nav-review" role="tabpanel">
                                 <div class="review__attribute">
                                     <h1>用户评价</h1>
-                                    <h2>近三个月</h2>
                                     <div class="review__ratings__type d-flex">
                                         <div class="review-ratings">
-                                            <div class="rating-summary d-flex">
-                                                <span>质量</span>
+                                            <div id="all_rating_2" class="rating-summary d-flex">
+                                                <span>评分</span>
                                                 <ul class="rating d-flex">
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
                                                     <li class="off"><i class="zmdi zmdi-star"></i></li>
                                                     <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="rating-summary d-flex">
-                                                <span>价格</span>
-                                                <ul class="rating d-flex">
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
                                                     <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="rating-summary d-flex">
-                                                <span>性价比</span>
-                                                <ul class="rating d-flex">
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
                                                     <li class="off"><i class="zmdi zmdi-star"></i></li>
                                                     <li class="off"><i class="zmdi zmdi-star"></i></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="review-content">
-                                            <p>Witchcraft</p>
-                                            <p>评价用户：Witchcraft</p>
-                                            <p>发布于2021年12月11日</p>
-                                        </div>
+<!--                                        <div class="review-content">-->
+<!--                                            <p>Witchcraft</p>-->
+<!--                                            <p>评价用户：Witchcraft</p>-->
+<!--                                            <p>发布于2021年12月11日</p>-->
+<!--                                        </div>-->
                                     </div>
                                 </div>
                                 <div class="review-fieldset">
                                     <h2>您正在浏览</h2>
                                     <h3>《计算机网络：自顶向下方法》</h3>
-                                    <div class="review-field-ratings">
-                                        <div class="product-review-table">
-                                            <div class="review-field-rating d-flex">
-                                                <span>质量</span>
-                                                <ul class="rating d-flex">
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="review-field-rating d-flex">
-                                                <span>价格</span>
-                                                <ul class="rating d-flex">
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="review-field-rating d-flex">
-                                                <span>性价比</span>
-                                                <ul class="rating d-flex">
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="review_form_field">
                                         <div class="input__box">
-                                            <span>昵称</span>
-                                            <input id="nickname_field" type="text" name="nickname">
-                                        </div>
-                                        <div class="input__box">
-                                            <span>主题</span>
-                                            <input id="summery_field" type="text" name="summery">
-                                        </div>
-                                        <div class="input__box">
                                             <span>内容</span>
-                                            <textarea name="review"></textarea>
+                                            <textarea id="comment_text"></textarea>
+                                        </div>
+                                        <div class="review-field-ratings">
+                                            <div class="product-review-table">
+                                                <div class="review-field-rating d-flex">
+                                                    <span>评分</span>
+                                                    <ul id="user_ratings" class="rating d-flex">
+                                                        <li onmouseover="onMouseOverRating(1)"
+                                                            class="off"><i class="zmdi zmdi-star"></i></li>
+                                                        <li onmouseover="onMouseOverRating(2)"
+                                                            class="off"><i class="zmdi zmdi-star"></i></li>
+                                                        <li onmouseover="onMouseOverRating(3)"
+                                                            class="off"><i class="zmdi zmdi-star"></i></li>
+                                                        <li onmouseover="onMouseOverRating(4)"
+                                                            class="off"><i class="zmdi zmdi-star"></i></li>
+                                                        <li onmouseover="onMouseOverRating(5)"
+                                                            class="off"><i class="zmdi zmdi-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="review-form-actions">
-                                            <button>发布评价</button>
+                                            <button onclick="onClickComment()">发布评价</button>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <!-- End Single Tab Content -->
+
+                            <!-- Start Single Tab Content -->
+                            <div class="pro__tab_label tab-pane fade " id="nav-details" role="tabpanel">
+                                <div class="description__attribute">
+                                    <p id="desc-2"></p>
+                                    <ul>
+                                        <li id="publish-2">• 机械工业出版社出版</li>
+                                        <li id="year-2">• 2007年发行</li>
+                                    </ul>
                                 </div>
                             </div>
                             <!-- End Single Tab Content -->
@@ -334,7 +255,7 @@
                     </div>
                     <div class="wn__related__product pt--80 pb--50">
                         <div class="section__title text-center">
-                            <h2 class="title__be--2">相关书籍</h2>
+                            <h2 class="title__be--2">其他书籍</h2>
                         </div>
                         <div class="row mt--60">
                             <div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
@@ -579,7 +500,7 @@
                 <div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
                     <div class="shop__sidebar">
                         <aside class="wedget__categories poroduct--cat">
-                            <h3 class="wedget__title">商品分类</h3>
+                            <h3 class="wedget__title">书籍分类</h3>
                             <ul>
                                 <li><a href="#">人物传记 <span>(6)</span></a></li>
                                 <li><a href="#">商务书籍 <span>(4)</span></a></li>
@@ -657,6 +578,7 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/plugins.js"></script>
 <script src="../js/active.js"></script>
+<script src="../js/description.js"></script>
 
 </body>
 </html>
