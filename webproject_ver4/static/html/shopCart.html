@@ -25,7 +25,8 @@
     <!-- Modernizer js -->
     <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
-<body onload="showShopCartTest()">
+<body onload="showShopCart(sessionStorage.getItem('userId'))">
+<!--<body onload="showShopCart(1)">-->
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience and security.</p>
@@ -49,7 +50,7 @@
                         <ul class="meninmenu d-flex justify-content-start">
                             <li><a href="index.html" id="i1">主页</a></li>
                             <li><a href="description.html" id="i2">商品详情</a></li>
-                            <li><a href="shopList.html" id="i3">查看全部</a></li>
+                            <li><a href="bookList.html" id="i3">查看全部</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -159,7 +160,7 @@
     <!-- Start Shop Page -->
     <div class="public-shop-cart">
         <div class="content">
-            <span>全部书籍3</span>
+            <span>全部书籍</span>
             <div class="cart-title">
             <span>
                 <input type="checkbox" id="all">
