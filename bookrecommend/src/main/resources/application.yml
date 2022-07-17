@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://lhj:lhj@39.106.137.16:27017/recommender
